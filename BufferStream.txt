@@ -1,0 +1,6 @@
+我是PrintWriter写入的1
+我是PrintWriter写入的2
+我是PrintWriter写入的3
+我是BufferedWriter写入的1
+我是BufferedWriter写入的2
+我是BufferedWriter写入的3
