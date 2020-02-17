@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * main function entry
@@ -61,5 +62,19 @@ public class Main {
             }
         };
         System.out.println(apHero.getName());
+
+
+        // parallel方法
+        long[] arrayOfLong = new long [ 20000 ];
+        //1.给数组随机赋值
+        Arrays.parallelSetAll( arrayOfLong, index -> ThreadLocalRandom.current().nextInt( 1000000 ) );
+        //2.打印出前10个元素
+        Arrays.stream( arrayOfLong ).limit( 10 ).forEach(i -> System.out.print( i + " " ) );
+        System.out.println();
+        //3.数组排序
+        Arrays.parallelSort( arrayOfLong );
+        //4.打印排序后的前10个元素
+        Arrays.stream( arrayOfLong ).limit( 10 ).forEach(i -> System.out.print( i + " " ) );
+        System.out.println();
     }
 }
